@@ -1,0 +1,110 @@
+<html>
+    <head>
+        {{>header}}
+    </head>
+    <body class="container bg-dark">
+        {{>websiteHeading}}
+        
+        
+
+        <section class="container bg-info mb-2 p-2">
+        <div class="card shadow ">
+        <div class="card-body bg-warning align-content-center">
+            <div class="card-title text-center">
+                <h2 class="m-0">New Admin Registration Form</h2>
+            </div>
+        </div>
+            <div class="card-body bg-info d-flex justify-content-center">
+            <div class="card-text p-2 w-50 ">
+                <form method="POST" action="/auth/adminRegistration">
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="firstname">Firstname</label>
+                        <input  type="text"
+                                class="form-control {{#errors.firstname}}is-invalid{{/errors.firstname}}"
+                                id="firstname"
+                                name="firstname"
+                                value="{{formData.firstname}}"
+                                title="minimum of 3 characters and max of 25, upper and lower case letters only"
+                                placeholder="enter firstname" required>
+                        <!--add error validation placeholder here -->
+                        {{#errors.firstname}}
+                            <div class="invalid-feedback">{{errors.firstname.msg}}</div>
+                        {{/errors.firstname}}
+
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="surname">Surname</label>
+                        <input  type="text"
+                                class="form-control {{#errors.surname}}is-invalid{{/errors.surname}}"
+                                id="surname"
+                                name="surname"
+                                value="{{formData.surname}}"
+                                title="minimum of 3 characters and max of 25, upper and lower case letters only"
+                                placeholder="enter surname" required>
+                        <!--add error validation placeholder here -->
+                        {{#errors.surname}}
+                            <div class="invalid-feedback">{{errors.surname.msg}}</div>
+                        {{/errors.surname}}
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="email">Email</label>
+                        <input  type="email"
+                                class="form-control {{#errors.email}}is-invalid{{/errors.email}}"
+                                id="email"
+                                name="email"
+                                value="{{formData.email}}"
+                                title="minimum of 3 characters and max of 25, upper and lower case letters only"
+                                placeholder="enter email" required>
+                        <!--add error validation placeholder here -->
+                        {{#errors.email}}
+                            <div class="invalid-feedback">{{errors.email.msg}}</div>
+                        {{/errors.email}}
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="username">Username</label>
+                        <input  type="text"
+                                class="form-control {{#errors.username}}is-invalid{{/errors.username}}"
+                                id="username"
+                                name="username"
+                                value="{{formData.username}}"
+                                title="minimum of 3 characters and max of 25, upper and lower case letters only, underscore is allowed"
+                                placeholder="enter username" required>
+                        <!--add error validation placeholder here -->
+                        {{#errors.username}}
+                            <div class="invalid-feedback">{{errors.username.msg}}</div>
+                            
+                        {{/errors.username}}
+                        <div class="card-text text-danger">{{error_username}}</div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="password">Password</label>
+                        <input  type="password"
+                                class="form-control {{#errors.pass}}is-invalid{{/errors.pass}}"
+                                id="pass"
+                                name="pass"
+                                title="minimum of 8 characters"
+                                value="{{formData.pass}}"
+                                placeholder="enter password" required>
+                        <!--add error validation placeholder here -->
+                        {{#errors.pass}}
+                            <div class="invalid-feedback">{{errors.pass.msg}}</div>
+                        {{/errors.pass}}
+
+
+                    </div>                    
+                    <div class="form-group d-flex justify-content-end">
+                        <button type=submit class="btn btn-dark">Register Admin</button>
+                    </div>
+                    
+
+                </form>
+            </div>
+            </div>            
+        </div>
+        </div>
+        </section>
+    </body>
+</html>

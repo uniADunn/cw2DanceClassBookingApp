@@ -1,0 +1,180 @@
+<html>
+    <header>
+        {{>header}}
+    </header>
+    <body class="container bg-dark" >
+    <div class="card mt-1 p-2 bg-info">
+        {{>websiteHeading}} 
+     
+        
+        {{#success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+        {{/success_msg}}
+        
+        {{#error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+        {{/error_msg}}
+    
+    
+        <div class="card-body bg-warning rounded mt-2 align-content-center">
+            <div class="card-title mb-0 text-center align-content-center">
+                <h2 class="m-0 text-capitalize">Dance Courses Available</h2>
+            </div>
+        </div>
+    </div>
+        {{#courseDetails}}
+    <section class="container p-1 mt-2 rounded bg-info">
+
+            <div class="card-body mt-2 mb-2 mx-2 pt-0 bg-info ">
+                <div class="card-text p-2 border border-dark rounded">
+                    
+                 
+
+                <div class="row">
+                    <div class="card-header d-flex rounded w-100 mx-3 my-2 bg-warning">                            
+                            <div class="col">
+                                <div class="card-text  mb-0 rounded">                   
+                                    <h4 class="inline m-0 text-capitalize">{{course_title}}</h4>
+                                </div>
+                            </div>
+                            <div class="col text-right">
+                                
+                                <h4>Cost: £{{cost}}</h4>
+                                
+                            </div>
+                        </div>
+                    </div>
+                
+               
+                    <!-- start of row 1 course title, location, and duration -->
+                    <div class="row">
+                   
+                        
+                        <!-- course location, col 2 -->
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="location">Course Location:</label>
+                                <div class="form-text bg-light m-0 rounded">
+                                    <label class="m-1 p-1">{{location}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- course duration, col 3 -->
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="courseDuration">Course Duration:</label>
+                                <div class="form-text text-center bg-light m-0 rounded">
+                                    <label class="m-1 p-1">{{course_duration}} Weeks</label>
+                                </div>                                                              
+                            </div>
+                        </div>
+                    <!--end of row1 class title -->
+                    </div>
+                    <!-- start of row 2 course start date, class start time, and duration -->
+                    <div class="row">
+                        <!-- course start date, row 2: col 1 -->
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="courseStartDate">Course Start Date:</label>
+                                <div class="form-text  bg-light m-0 rounded">
+                                    <label class="m-1 p-1">{{start_date}}</label>
+                                </div>                                
+                            </div>
+                        <!-- end of course start date, row 2: col 1 -->
+                        </div>
+                            <!-- class start time, row 2: col 2 -->
+                            <div class="col">
+                                <div class="form-group">
+                                    <label class="font-weight-bold" for="classStartTime">class Start Time:</label>
+                                    <div class="form-text text-center bg-light m-0 rounded">
+                                    <label class="m-1 p-1">{{class_start_time}}</label>
+                                </div>
+                                    
+                            </div>
+                            <!-- end of class start time, row 2: col 2 -->
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group">
+                                    <label class="font-weight-bold" for="classDuration">Class Duration:</label>
+                                    <div class="form-text text-center bg-light m-0 rounded">
+                                        <label class="m-1 p-1">{{class_duration}} hrs/class</label>
+                                    </div>                                    
+                                </div>
+                        </div>                   
+                    </div><!-- end of row 2 start date and time -->
+                    <div class="row">
+                        <div class="col-md-6">                        
+                            <div class="form-group ">
+                                <label class="font-weight-bold" for="description">Course Description</label>
+                                <textarea  type="text"
+                                        class="form-control"
+                                        id="description"
+                                        name="description"                                                                                
+                                        rows="4"
+                                        readonly>{{description}}
+                                </textarea>
+                            </div>                            
+                        </div>
+
+                        
+                        <div class="col-md-6">
+                                    <div class="row h-100">
+                                        
+                                        <div class="col-md-6">                                            
+                                                <label class="font-weight-bold" for="cost">Dancers Attending:</label>
+                                                <div class="form-text text-center bg-light m-0 rounded">
+                                                    <label class="m-1 p-1">{{totalCount}}</label>
+                                                </div>                                                                                                                                                    
+                                        </div>
+                                        <div class="col-md-6 d-flex flex-column">
+                                            <div class="form-group mt-auto mb-0 text-right">
+                                                <form action="auth/bookCourse/{{_id}}" method="POST">
+                                                    <button type=submit class="btn btn-primary text-end">Book Course</button>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                                                        
+                    </div><!-- end of row 3 duration and cost -->
+                                       
+
+            
+            </div>
+               
+            </div>
+            </div>
+        </div>
+        </div>
+        </section>
+
+
+
+
+    
+                
+                
+            </div>
+        </div>
+        {{/courseDetails}}
+
+        {{^courseDetails}}
+        <section class="container bg-info rounded ">                            
+        <div class="card-body mb-2 bg-info rounded" >
+            <div class="card-header rounded bg-warning ">                            
+                
+                                    
+                    <h4 class="fw-bold text-capitalize">Sorry no classes available yet.</h4>
+                    
+                    <div class="card-body shadow bg-light rounded">
+                        <p>dance classes will be available soon.</p>
+                    </div>
+                                                   
+            </div>
+        </section>
+        {{/courseDetails}}
+       </div> 
+    </body>
+</html>

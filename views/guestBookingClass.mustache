@@ -1,0 +1,145 @@
+<html>
+    <head>
+        {{>header}}
+    </head>
+    <body class="container bg-dark">
+    {{#classes}}
+    {{>websiteHeading}}
+    
+    
+    
+
+
+        
+    <div class="card-body bg-dark shadow rounded-top">          
+    <!-- card heading -->
+            <div class="row">
+                <div class="card-body rounded" >
+                    <div class="col">               
+                        <div class="card-header bg-warning ">                                                    
+                            <div class="card-title text-center">
+                                <h2 class="text">Dance Class Guest Booking Form</h2>
+                            </div>  
+                        </div>               
+                    </div>
+                </div>
+            </div>                    
+        <!-- end card heading -->        
+        
+        <!-- start main row -->
+        <div class="row">
+            <div class="card-body bg-info rounded d-flex">
+                <!-- start left column -->                                                
+                <div class="col-7 border border-dark rounded p-3" >
+                    
+                    <!--start class title and cost -->
+                    <div class="card-body">                        
+                        <div class="row">                                                
+                            <div class="col">
+                                <div class="card-text">
+                                    <u><p class="mb-0 text-capitalize d-inline">Class name: <span class="font-weight-bold">{{class_title}}</span></p></u>
+                                </div>
+                            </div>                            
+                            <div class="col">
+                                <div class="card-text text-right">
+                                    <u><p class="font-weight-bolder mb-0">Cost: £<span class="font-weight-normal">{{cost}}</span></p></u>
+                                </div>                        
+                            </div>                            
+                        </div>
+                    </div>
+                        
+                    <!--end class title and cost -->
+                                        
+                        <div class="card-body my-4 d-flex justify-content-center ">
+                                <div class="col-6">
+                                    <div class="card-text">
+                                        <p class="font-weight-bold">Location:<span class="font-weight-normal text-capitalize"> {{location}}</span></p>
+                                        <p class="font-weight-bold">Duration:<span class="font-weight-normal"> {{duration}} hours</span></p>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card-text ">                                
+                                        <p class="font-weight-bold">Start Date:<span class="font-weight-normal"> {{start_date}}</span></p>
+                                        <p class="font-weight-bold ">Start Time:<span class="font-weight-normal"> {{start_time}}</span></p>
+                                    </div>
+                                </div>                        
+                        </div>
+                             
+                    
+
+                    
+                        <div class="card-body mt-5 pt-5">
+                        <div class="col">
+                            <div class="card-text">
+                                <div>
+                                    <p class="mb-0"><u><strong>Class Description:</strong></u></p>
+                                </div>
+                                <div class="">    
+                                    <p class="bg-light p-2 border border-dark rounded" style="white-space: pre-line; min-height: 100px; max-height: 100px; overflow-y: auto;"> {{description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    
+                    
+                </div>
+                <!-- end of left column -->
+
+                <!--start of right column guest booking form -->
+                
+                <div class="col-5 border border-dark ml-2 rounded">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card-text">
+                                    <h5 class="font-weight-bold mb-0"><u>Guest Booking Form</u></h5>
+                                </div>                        
+                            </div>
+                        </div>
+                    <div class="card-text mt-4 pt-5 ">
+                    <form method="POST" for="guestFormBooking" action="/guest_book_class/{{_id}}"> 
+                        
+                        <div class="form-group">                                       
+                            <label for="guestEmail" class="font-weight-bold">email</label>                                            
+                            <input type="email" id="guestEmail" name="guestEmail" class="form-control {{#errors.guestEmail}}is-invalid{{/errors.guestEmail}}" placeholder="enter email" value="{{formData.guestEmail}}" required>
+                            {{#errors.guestEmail}}
+                                <div class="invalid-feedback">{{errors.guestEmail.msg}}</div>
+                            {{/errors.guestEmail}}
+                        </div>
+                        <div class="form-group">                                       
+                            <label for="firstName" class="font-weight-bold">first name</label>                                            
+                            <input type="text" id="firstName" name="firstName" class="form-control {{#errors.firstName}}is-invalid{{/errors.firstName}}" placeholder="enter first name" value="{{formData.firstName}}" required>
+                            {{#errors.firstName}}
+                                <div class="invalid-feedback">{{errors.firstName.msg}}</div>
+                            {{/errors.firstName}}
+                        </div>
+                        <div class="form-group">                                       
+                            <label for="surname" class="font-weight-bold">surname</label>
+                            <input type="text" id="surname" name="surname" class="form-control {{#errors.surname}}is-invalid{{/errors.surname}}" placeholder="enter surname" value="{{formData.surname}}" required>
+                            {{#errors.surname}}
+                                <div class="invalid-feedback">{{errors.surname.msg}}</div>
+                            {{/errors.surname}}
+                        </div>
+
+                        <div class="row justify-content-end pt-2">
+                            <div class="card-text col d-flex justify-content-end">                                    
+                                <div class="align-content-end">
+                                    <div class="mt-4  pt-2 my-0">                                    
+                                        <button for="guestFormBooking" type="submit" class="btn btn-primary">Confirm booking</button>                                        
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    
+                </div>
+                <!--end of right column -->
+            </div>
+            </div>
+        </div>
+        <!-- end of main row -->
+    </div>
+    {{/classes}}                                          
+    </body>
+</html>

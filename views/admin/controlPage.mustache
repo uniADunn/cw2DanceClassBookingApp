@@ -1,0 +1,180 @@
+<html>
+    <head>
+        {{>header}}
+    </head>
+    <body class="container bg-dark">
+        {{>websiteHeading}}
+        
+         <section class="container bg-info rounded m-2 p-2 ">  
+         {{#success}}
+            <div class="card-title ">
+                <div class="card-text bg-dark rounded text-success">
+                <p class="p-2">{{success}}</p>
+                </div>
+            </div>
+        {{/success}}
+        {{#fbMsg_success}}
+            <div class="card-title bg-dark rounded text-success">
+                <p class="p-2">{{fbMsg_success}}</p>
+            </div>
+        {{/fbMsg_success}}
+        {{#fbMsg_fail}}
+            <div class="card-title bg-dark rounded text-danger">
+                <p class="p-2">{{fbMsg_fail}}</p>
+            </div>
+        {{/fbMsg_fail}}
+        
+            <div class="card shadow  bg-info rounded" ><!-- main content card -->
+                {{>admin/adminControlHeader}}
+                                
+                    
+                    <div class="row d-flex justify-content-around">                        
+                        <!-- Add Class -->
+                        <div class="col-md-4 mb-3">
+                            <div class="card shadow h-100 d-flex flex-column">
+                                
+                                <div class="card-header bg-light font-weight-bold">
+                                    Add New Dance Class
+                                </div>
+                                
+                                <div class="card-body">
+                                <div class="card-text m-3 p-4 text-center">
+                                    Create and add new dance class to the sytem
+                                </div>
+                                </div>
+                                
+                                <div class="card-footer d-flex justify-content-center p-2">
+                                    <a href="/auth/addClass" class="w-100 btn btn-primary">Add New Class</a>
+                                </div>
+
+                            </div>
+                        </div>                        
+
+                        <!-- add course -->
+                        <div class="col-md-4 mb-3">
+                            <div class="card shadow h-100 d-flex flex-column">
+                                
+                                <div class="card-header bg-light font-weight-bold">
+                                    Add New Dance Course
+                                </div>
+
+                                <div class="card-body">
+                                <div class="card-text text-center m-3 p-4">
+                                    Create and add a new dance course to the system
+                                </div>
+                                </div>
+
+                                <div class="card-footer d-flex justify-content-center p-2">
+                                    <a href="/auth/addCourse" class="w-100 btn btn-primary">Add New Course</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Add New Admin -->
+                        <div class="col-md-4 mb-3">
+                            <div class="card shadow h-100 d-flex flex-column">
+                                
+                                <div class="card-header bg-light font-weight-bold">
+                                    Add New Admin
+                                </div>
+
+                                <div class="card-body">
+                                <div class="card-text text-center m-3 p-4">
+                                    Add a new administrator to the system.
+                                </div>
+                                </div>
+                                
+                                <div class="card-footer d-flex justify-content-center p-2 ">
+                                    <a href="/auth/newAdmin" class="w-100 btn btn-primary">New Admin</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of first row -->
+                    
+                    <!--start of second row -->
+                    <div class="row d-flex justify-content-around">
+                        <!-- edit or remove dance class -->
+                        <div class="col-md-4 mb-3">
+                            <div class="card shadow h-100 d-flex flex-column">
+                                
+                                <div class="card-header bg-light font-weight-bold">
+                                    Edit or Remove Dance Class
+                                </div>
+                                
+                                <div class="card-body">
+                                <div class="card-text text-center m-2 p-4">
+                                    edit or remove a dance class from the system
+                                </div>
+                                </div>
+                                
+                                <div class="card-footer d-flex justify-content-center p-2">
+                                    <a href="/auth/editClassesList" class="w-100 btn btn-primary">Class Management</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- edit or remove dance course -->
+                        <div class="col-md-4 mb-3">
+                            <div class="card shadow h-100 d-flex flex-column">
+                                
+                                <div class="card-header bg-light font-weight-bold">
+                                    Edit or Remove Dance Course
+                                </div>
+                                
+                                <div class="card-body">
+                                <div class="card-text text-center m-2 p-4">
+                                    edit or remove dance courses from the system
+                                </div>
+                                </div>
+
+                                <div class="card-footer d-flex justify-content-center p-2">
+                                    <a href="/auth/editCoursesList" class="btn btn-primary w-100">Course Management</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- remove an Admin -->                             
+                        <div class="col-md-4 mb-3">                                                       
+                            <div class="card shadow h-100 d-flex flex-column">
+                                
+                                <div class="card-header bg-light font-weight-bold">
+                                    Remove An Administrator
+                                </div>
+                                
+                                <div class="card-body">
+                                    <div class="card-text text-center m-2 p-4">
+                                        Remove Administrator from the system                                    
+                                    </div>
+                                    
+
+                                    <form action="/auth/deleteAdmin" method="POST" class="mb-2 p-4">
+                                        <div class="card-text font-weight-bold">                                                                         
+                                            <label for="delete-admin">Administrator Username:</label>
+                                        </div>
+                                        <div class="card-text">
+                                            <input type="text" name="adminUname" id="adminUname" class="w-100 form control" placeholder="enter administrator's name"/>   
+                                        </div>
+                                </div>
+                                    
+                                        <div class="card-footer  d-flex justify-content-center align-content-end p-2">                                        
+                                            <button type="submit" class="w-100 form-control btn btn-danger">Remove Admin</button>                                        
+                                        </div>                 
+                                    </form>
+                                                            
+                            </div>                            
+                        
+
+                    </div>
+                    <!--end of 2nd row-->
+                    
+                
+            </section>
+        </section>
+              
+    </body>
+</html>

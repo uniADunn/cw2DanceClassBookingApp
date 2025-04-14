@@ -1,0 +1,68 @@
+<html>
+    <head>
+        {{>header}}
+    </head>
+    <body class="container bg-dark">
+        {{>websiteHeading}}
+        
+
+        <section class="container bg-info mb-5 p-2">
+        <div class="card shadow">
+        <div class="card-body bg-warning align-content-center">
+            <div class="card-title text-center">
+                <h2 class="m-0">Login</h2>
+            </div>
+        </div>
+
+        <div class="card bg-info d-flex justify-content-center">
+        <div class="card-body shadow align-content-center">
+        <div class="card-text p-4 w-50 mx-auto">
+            <form method="POST" for="login" action="/auth/login">
+            <p class="text-danger">{{error_credentials}}</p>
+            <div class="form-group">                
+                <label class="font-weight-bold" for="username">User Name</label>
+                <input type="text"
+                class="form-control {{#errors.username}}is-invalid{{/errors.username}}"
+                id="username"
+                name="username"
+                value="{{formData.username}}"
+                placeholder="enter user name" required>
+
+                {{#errors.username}}
+                    <div class="text-danger">{{errors.username.msg}}</div>
+                {{/errors.username}}
+
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold" for="password">Password</label>
+                <input type="password"
+                class="form-control {{#errors.pass}}is-invalid{{/errors.pass}}"
+                id="pass"
+                name="pass"
+                placeholder="enter password"
+                minlength="8" required>
+
+                {{#errors.pass}}
+                    <div class="text-danger">{{errors.pass.msg}}</div>
+                {{/errors.pass}}
+            </div>
+
+            <div class="form-group d-flex justify-content-end">
+                <input type="submit" value="Login" class="btn btn-dark">
+            </div>
+            
+        </form>
+        
+        </div>
+        </div>
+        </div>
+        
+
+        </div>
+        </section>
+        
+
+        
+    </body>
+</html>

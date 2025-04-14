@@ -1,0 +1,128 @@
+<html>
+    <header>
+        {{>header}}
+    </header>
+    <body class="container bg-dark" >
+    <div class="card bg-info">
+        {{>websiteHeading}}
+        
+
+        {{#success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+        {{/success_msg}}
+    
+        {{#error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+        {{/error_msg}}
+    
+    <div class="card-body bg-warning rounded-top my-2 mx-2 align-content-center">
+        <div class="card-title text-center align-content-center">
+            <h2 class="m-0 text-capitalize">Dance Class Management</h2>
+        </div>
+    </div>
+    </div>
+    {{#classDetails}}            
+    <section class="container mt-2 bg-info rounded ">                            
+        <div class="card-body mb-2 bg-info rounded" >
+            <div class="card-header  bg-warning ">                            
+                <div class="row rounded d-flex justify-content-between">
+                    
+                    <div class="col text-left">                
+                        <h4 class="fw-bold text-capitalize">{{class_title}}</h4>
+                    </div>
+                    <div class="col text-right">
+                        <h4>Cost: £{{cost}}</h4>
+                    </div>
+                        
+                </div>               
+            </div>
+        
+    
+            <div class="card-body shadow bg-light rounded">
+                <div class="card-text">                    
+                    <div class="row justify-content-between">
+                        
+                        <div class="col-3">
+                            <p class="font-weight-bold ">Location:<span class="font-weight-normal text-capitalize"> {{location}}</span></p>
+                        </div>
+                                                
+                        <div class="col-md-3 ">
+                            <p class="font-weight-bold">Duration:<span class="font-weight-normal"> {{duration}} hours</span></p>
+                        </div>
+                        
+                        <div class="col-md-3 ">
+                            <p class="font-weight-bold">Start Date:<span class="font-weight-normal"> {{start_date}}</span></p>
+                        </div>
+
+                        <div class="col-md-3 ">
+                            <p class="font-weight-bold">Start Time:<span class="font-weight-normal"> {{start_time}}</span></p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- start of row -->
+                <div class="row justify-content-between">
+                    <!-- start of 1st column -->                    
+                    <div class="col-6">
+
+                        <div class="card-body p-1">
+                            <div class="card-text">
+                                <p class="m-1"><u><strong>Class Description:</strong></u></p>
+                                <p class="border p-1 m-1" style="white-space: pre-line; min-height: 100px; max-height: 100px; overflow-y: auto;">{{description}}</p>
+                            </div>
+                        </div>                    
+                    </div><!-- end of column1 -->
+                    <div class="col-3">
+                        <div class="card-body p-1 d-flex flex-column h-100">
+                            <div class="card-text text-center p-2 form-group flex-grow-1">
+                                <p class="m-1 font-weight-bold">participants total:<span class="font-weight-normal"> {{totalCount}}</span></p>                               
+                            </div>
+                            <div class="card-text p-1 mt-1">
+                                <a href="/auth/classParticipants/{{_id}}" id="removeBtn" type="submit" class="btn btn-primary w-100">view participants</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- start of column 3 -->
+                    <div class="col-3 ">
+                    <div class="card-body h-100 p-1 d-flex justify-content-end">
+                    <form class="mb-0" method="GET" action="/auth/editClass/{{_id}}">
+                        
+                            <div class="card-text d-flex flex-column h-100 justify-content-end p-1">                            
+                                <div class="card-text text-end w-100">                                                                                                 
+                                    <button id="editBtn" type="submit" class="btn btn-primary w-100 mb-1">Edit</button>                                
+                                    <a href="/auth/deleteClass/{{_id}}" id="removeBtn" type="submit" class="bg-danger btn btn-primary w-100">Delete</a>
+                                </div>                
+                            </div>
+                        
+                    </form>
+                    </div><!-- end of column 2 -->
+
+                </div>
+
+            </div>
+            </div>
+    </section>               
+                
+            </div>
+        </div>
+        {{/classDetails}}
+
+        {{^classDetails}}
+        <section class="container bg-info rounded ">                            
+        <div class="card-body mb-2 bg-info rounded" >
+            <div class="card-header rounded bg-warning ">                            
+                
+                                    
+                    <h4 class="fw-bold text-capitalize">Sorry no classes available yet.</h4>
+                    
+                    <div class="card-body shadow bg-light rounded">
+                        <p>There are no dance classes available...</p>
+                    </div>
+                                                   
+            </div>
+        </section>
+        {{/classDetails}}
+
+    </body>
+</html>

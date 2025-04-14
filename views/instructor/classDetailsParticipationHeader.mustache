@@ -1,0 +1,38 @@
+<!-- class details section -->                
+                {{#classDetails}}
+                    {{>instructor/participationClassHeader}}
+                    {{>instructor/stats}}
+                    
+        <div class="card-body rounded-bottom bg-info">
+                         
+                    <div class="card-text">                    
+                        <div class="row d-flex justify-content-between">
+                                
+                                <div class="col">
+                                    <div class=" border border-dark text-center bg-light rounded">
+                                        <p class="mb-0 p-1 font-weight-bold text-center ">Location:<span class="font-weight-normal text-capitalize"> {{location}}</span></p>
+                                    </div>
+                                </div>
+                
+                                <div class="col">                      
+                                    <div class="border border-dark text-center bg-light rounded">
+                                        <p class="mb-0 p-1 font-weight-bold text-center">Duration:<span class="font-weight-normal"> {{duration}} hours</span></p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class=" border border-dark bg-light  text-center rounded">
+                                        <p class="mb-0 p-1 font-weight-bold text center">Start Date:<span class="font-weight-normal"> {{start_date}}</span></p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="border border-dark bg-light text-center rounded">
+                                        <p class="mb-0 p-1 font-weight-bold text-center">Start Time:<span class="font-weight-normal"> {{start_time}}</span></p>
+                                    </div>
+                                </div>
+            
+                            {{/classDetails}}
+                        </div><!-- end of row -->
+                    </div>
+                    
+                        
+                     

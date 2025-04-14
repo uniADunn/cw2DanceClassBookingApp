@@ -1,0 +1,28 @@
+{
+  "name": "danceclasswebapp",
+  "version": "1.0.0",
+  "description": "simple dance booking web application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "express"
+  ],
+  "author": "Ashley Dunn",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
+    "gray-nedb": "^1.8.3",
+    "jsonwebtoken": "^9.0.2",
+    "mustache-express": "^1.3.2",
+    "path": "^0.12.7"
+  }
+}

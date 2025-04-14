@@ -1,0 +1,205 @@
+<html>
+    <head>
+        {{>header}}
+    </head>
+    <body class="container bg-dark">
+        {{>websiteHeading}}
+        {{#courseDetails}}
+        <section class="container rounded bg-info mb-2 p-2">
+        <div class="row">
+            <div class="col">
+            {{! <div class="card  "> }}
+        <div class="card-body bg-warning rounded-top align-content-center">
+            <div class="card-title text-center align-content-center">
+                <h2 class="m-0 text-capitalize">edit dance course form</h2>
+            </div>
+        </div>
+            <div class="card-body mt-2 bg-info border border-dark rounded">
+            <div class="card-text p-2">
+                    <!-- start of form-->
+                    <form method="POST" action="/auth/postEditCourse/{{_id}}" class="mb-0">
+                    <!-- start of row 1 course title, location, and duration -->
+                    <div class="row">
+                    <!-- course title, col 1 -->
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="courseTitle">Course Title:</label>
+                                <input  type="text"
+                                        class="form-control {{#errors.courseTitle}}is-invalid{{/errors.courseTitle}}"
+                                        id="courseTitle"
+                                        name="courseTitle"
+                                        value="{{course_title}}"
+                                        title="minimum of 3 characters and max of 25, upper and lower case letters only"
+                                        placeholder="enter name of course" required>
+                                <!--add error validation placeholder here -->
+                                {{#errors.courseTitle}}
+                                    <div class="invalid-feedback">{{errors.courseTitle.msg}}</div>
+                                {{/errors.courseTitle}}
+                            </div>
+                        <!-- end of course title col 1 -->
+                        </div>
+                        <!-- course location, col 2 -->
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="location">Course Location:</label>
+                                <input  type="text"
+                                        class="form-control {{#errors.location}}is-invalid{{/errors.location}}"
+                                        id="location"
+                                        name="location"
+                                        title="minimum of 8 characters"
+                                        value="{{location}}"
+                                        placeholder="enter location" required>
+                                <!--add error validation placeholder here -->
+                                {{#errors.location}}
+                                    <div class="invalid-feedback">{{errors.location.msg}}</div>
+                                {{/errors.location}}
+                            </div>
+                        <!-- end of location, col 2 -->
+                        </div>
+                        <!-- course duration, col 3 -->
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="courseDuration">Course Duration:</label>
+                                <input  type="number"
+                                        class="form-control {{#errors.courseDuration}}is-invalid{{/errors.courseDuration}}"
+                                        id="courseDuration"
+                                        name="courseDuration"
+                                        min="6"
+                                        max="26"
+                                        step="1"
+                                        value="{{course_duration}}"
+                                        title="minimum of 3 characters and max of 25, upper and lower case letters only, underscore is allowed"
+                                        placeholder="enter course duration" required>
+                                <!--add error validation placeholder here -->
+                                {{#errors.courseDuration}}
+                                    <div class="invalid-feedback">{{errors.courseDuration.msg}}</div>                                    
+                                {{/errors.courseDuration}}
+                            </div>
+                        <!-- end of course duration, col 3 -->
+                        </div>
+                    <!--end of row1 class title -->
+                    </div>
+                    <!-- start of row 2 course start date, class start time, and duration -->
+                    <div class="row">
+                        <!-- course start date, row 2: col 1 -->
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="courseStartDate">Course Start Date:</label>
+                                <input  type="date"
+                                        class="form-control {{#errors.courseStartDate}}is-invalid{{/errors.courseStartDate}}"
+                                        id="courseStartDate"
+                                        name="courseStartDate"
+                                        value="{{start_date}}"
+                                        min="{{minCourseStartDate}}"
+                                        title="minimum of 3 characters and max of 25, upper and lower case letters only"
+                                        placeholder="enter course start Date" required>
+                                <!--add error validation placeholder here -->
+                                {{#errors.courseStartDate}}
+                                    <div class="invalid-feedback">{{errors.courseStartDate.msg}}</div>
+                                {{/errors.courseStartDate}}
+                            </div>
+                        <!-- end of course start date, row 2: col 1 -->
+                        </div>
+                            <!-- class start time, row 2: col 2 -->
+                            <div class="col">
+                                <div class="form-group">
+                                    <label class="font-weight-bold" for="classStartTime">class Start Time:</label>
+                                    <input  type="time"
+                                            class="form-control {{#errors.classStartTime}}is-invalid{{/errors.classStartTime}}"
+                                            id="classStartTime"
+                                            name="classStartTime"
+                                            value="{{class_start_time}}"
+                                            min="{{minClassStartTime}}"
+                                            max="{{maxClassStartTime}}"
+                                            step={{stepTime}}
+                                            title="min time is 08:00 and max time is 22:00"
+                                            placeholder="enter class start Time" required>
+                                    <!--add error validation placeholder here -->
+                                    {{#errors.classStartTime}}
+                                        <div class="invalid-feedback">{{errors.classStartTime.msg}}</div>
+                                    {{/errors.classStartTime}}
+                                </div>
+                            <!-- end of class start time, row 2: col 2 -->
+                            </div>
+
+                            <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="classDuration">Class Duration:</label>
+                                <input  type="number"
+                                        class="form-control {{#errors.classDuration}}is-invalid{{/errors.classDuration}}"
+                                        id="classDuration"
+                                        name="classDuration"
+                                        min="1"
+                                        max="10"
+                                        step="1"
+                                        value="{{class_duration}}"
+                                        title="minimum of 3 characters and max of 25, upper and lower case letters only, underscore is allowed"
+                                        placeholder="enter classDuration" required>
+                                <!--add error validation placeholder here -->
+                                {{#errors.classDuration}}
+                                    <div class="invalid-feedback">{{errors.classDuration.msg}}</div>                                    
+                                {{/errors.classDuration}}
+                            </div>
+                        </div>                   
+                    </div><!-- end of row 2 start date and time -->
+                    <div class="row">
+                    <div class="col">
+                            <div class="form-group ">
+                                <label class="font-weight-bold" for="description">Course Description</label>
+                                <textarea  type="text"
+                                        class="form-control {{#errors.description}}is-invalid{{/errors.description}}"
+                                        id="description"
+                                        name="description"
+                                        title="minimum of 8 characters"                                        
+                                        rows="4"                                
+                                        placeholder="enter description" required>{{description}}</textarea>
+                                <!--add error validation placeholder here -->
+                                {{#errors.description}}
+                                    <div class="invalid-feedback">{{errors.description.msg}}</div>
+                                {{/errors.description}}
+                            </div>
+                            
+                        </div>
+                        <!-- add class duration-->
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="cost">Cost (£):</label>
+                                <input  type="decimal"
+                                        class="form-control text-end {{#errors.cost}}is-invalid{{/errors.cost}}"
+                                        id="cost"
+                                        name="cost"
+                                        title="minimum of 8 characters"
+                                        value="{{cost}}"
+                                        step="0.01"
+                                        placeholder="0.00" required>
+                                <!--add error validation placeholder here -->
+                                {{#errors.cost}}
+                                    <div class="invalid-feedback">{{errors.cost.msg}}</div>
+                                {{/errors.cost}}
+                            </div>
+                            <div class="row">
+                        
+                        <div class="col align-content-end">
+                            <div class="form-group d-flex justify-content-end align-content-end">
+                                <div class="align-content-end">
+                                    <button type=submit class="btn btn-secondary">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end of row description and submit button-->
+                        </div>
+                        
+                    </div><!-- end of row 3 duration and cost -->
+                    
+                    </form>
+
+            </div>
+            </div>
+            {{/courseDetails}}   
+            </div>
+            {{! </div>             }}
+        </div>
+        </div>
+        </section>
+    </body>
+</html>

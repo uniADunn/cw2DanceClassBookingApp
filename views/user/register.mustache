@@ -1,0 +1,123 @@
+<html>
+    <head>
+        {{>header}}
+    </head>
+    <body class="container bg-dark">
+        {{>websiteHeading}}
+        
+
+        <section class="container bg-info rounded mb-5 p-2">
+        <div class="card shadow">
+        <div class="card-body bg-warning align-content-center">
+            <div class="card-title  text-center">
+                <h2 class=" m-0">New User Registration</h2>
+            </div>
+        </div>
+
+        <div class="card bg-info d-flex justify-content-center  ">
+        <div class="card-body shadow align-content-center">
+        <div class="card-text p-4 w-50 mx-auto ">
+            <form method="POST" role="register" action="/register">
+                {{#error_user_notFound}}
+                <div class="card-body rounded bg-dark">                
+                    <p class="text-danger m-0 p-0">{{error_user_notFound}}</p>
+                </div>
+                {{/error_user_notFound}}
+                <div class="form-group">                
+                    <label class="font-weight-bold" for="firstname">firstname</label>
+                    <input type="text" 
+                    class="form-control {{#errors.firstname}}is-invalid{{/errors.firstname}}"
+                    id="firstname"
+                    name="firstname"
+                    pattern="[A-Za-z]+"
+                    title="upper and lowercase only"
+                    value="{{formData.firstname}}"
+                    placeholder="enter firstname" required>  
+
+                    {{#errors.firstname}}
+                        <div class="invalid-feedback">{{errors.firstname.msg}}</div>
+                    {{/errors.firstname}}              
+                </div>
+                
+
+                <div class="form-group">                
+                    <label class="font-weight-bold" for="surname">surname</label>
+                    <input type="text" 
+                    class="form-control {{#errors.surname}}is-invalid{{/errors.surname}}"
+                    id="surname"
+                    name="surname"
+                    pattern="[A-Za-z]+"
+                    title="upper and lowercase only"
+                    value="{{formData.surname}}"
+                    placeholder="enter surname" required> 
+
+                    {{#errors.surname}}
+                        <div class="invalid-feedback">{{errors.surname.msg}}</div>
+                    {{/errors.surname}}           
+                </div>
+                
+                <div class="form-group">
+                    <label class="font-weight-bold" for="email">Email</label>
+                    <input type="email" 
+                    class="form-control {{#errors.email}}is-invalid{{/errors.email}}"
+                    id="email"
+                    name="email"
+                    value="{{formData.email}}"
+                    placeholder="enter email" required>
+
+                    {{#errors.email}}
+                        <div class="invalid-feedback">{{errors.email.msg}}</div>
+                    {{/errors.email}}            
+                </div>
+
+                <div class="form-group">                
+                    <label class="font-weight-bold" for="username">User Name:</label>            
+                    <input type="text" 
+                    class="form-control {{#errors.username}}is-invalid{{/errors.username}}"
+                    id="username"
+                    name="username"
+                    pattern="[A-Za-z0-9_]+$"
+                    title="upper and lowercase, numbers and underscore are allowed"
+                    value="{{formData.username}}"
+                    placeholder="enter user name" required>
+                    {{#error_username}}
+                        <div class="card-body my-1 p-0 rounded bg-dark">
+                            <p class="card-text m-0 p-1 text-danger">{{error_username}}</p>
+                        </div>
+                    {{/error_username}}
+                    {{#errors.username}}
+                        <div class="invalid-feedback">{{errors.username.msg}}</div>
+                    {{/errors.username}}               
+                </div>
+
+                <div class="form-group">
+                    <label class="font-weight-bold" for="password">Password</label>
+                    <input type="password"
+                    class="form-control {{#errors.pass}}is-invalid{{/errors.pass}}"
+                    id="pass"
+                    name="pass"
+                    title="minimum characters is 8"
+                    minlength="8"                
+                    placeholder="enter password"
+                    value="{{formData.pass}}"
+                    minlength="8" required>
+
+                    {{#errors.pass}}
+                        <div class="invalid-feedback">{{erros.pass.msg}}</div>
+                    {{/errors.pass}}
+                </div>
+
+
+                <div class="form-group d-flex justify-content-end">
+                    <input type="submit" value="Register" class="btn btn-dark">
+                </div>
+            </form>
+
+        </div>
+        </div>
+        </div>
+        </section>
+
+        
+    </body>
+</html>

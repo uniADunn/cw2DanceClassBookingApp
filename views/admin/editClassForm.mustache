@@ -1,0 +1,172 @@
+<html>
+    <head>
+        {{>header}}
+    </head>
+    <body class="container bg-dark">
+        {{>websiteHeading}}
+        
+        
+
+        <section class="container rounded bg-info mb-2 p-2">
+        <div class="row">
+            <div class="col">
+            <div class="card shadow ">
+        <div class="card-body bg-warning align-content-center">
+            <div class="card-title text-center align-content-center">
+                <h2 class="m-0 text-capitalize">edit dance class form</h2>
+            </div>
+        </div>
+            <div class="card-body bg-info">
+            <div class="card-text p-2">
+                    {{#classes}} 
+                    <form method="POST" action="/auth/postEditClass/{{_id}}">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="classTitle">Class Title:</label>
+                                <input  type="text"
+                                        class="form-control {{#errors.classTitle}}is-invalid{{/errors.classTitle}}"
+                                        id="classTitle"
+                                        name="classTitle"
+                                        value="{{class_title}}"
+                                        title="minimum of 3 characters and max of 25, upper and lower case letters only"
+                                        placeholder="enter name of Class" required>
+                                <!--add error validation placeholder here -->
+                                {{#errors.classTitle}}
+                                    <div class="invalid-feedback">{{errors.classTitle.msg}}</div>
+                                {{/errors.classTitle}}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="location">Class Location:</label>
+                                <input  type="text"
+                                        class="form-control {{#errors.location}}is-invalid{{/errors.location}}"
+                                        id="location"
+                                        name="location"
+                                        title="minimum of 8 characters"
+                                        value="{{location}}"
+                                        placeholder="enter location" required>
+                                <!--add error validation placeholder here -->
+                                {{#errors.location}}
+                                    <div class="invalid-feedback">{{errors.location.msg}}</div>
+                                {{/errors.location}}
+                            </div>
+                        </div>
+                    </div><!--end of row1 class title -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="startDate">Start Date:</label>
+                                <input  type="date"
+                                        class="form-control {{#errors.startDate}}is-invalid{{/errors.startDate}}"
+                                        id="startDate"
+                                        name="startDate"
+                                        value="{{start_date}}"
+                                        min="{{minStartDate}}"
+                                        title="minimum of 3 characters and max of 25, upper and lower case letters only"
+                                        placeholder="enter startDate" required>
+                                <!--add error validation placeholder here -->
+                                {{#errors.startDate}}
+                                    <div class="invalid-feedback">{{errors.startDate.msg}}</div>
+                                {{/errors.startDate}}
+                            </div>
+                        </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label class="font-weight-bold" for="startTime">Start Time:</label>
+                                    <input  type="time"
+                                            class="form-control {{#errors.startTime}}is-invalid{{/errors.startTime}}"
+                                            id="startTime"
+                                            name="startTime"
+                                            value="{{start_time}}"
+                                            min="{{minTime}}"
+                                            max="{{maxTime}}"
+                                            step={{stepTime}}
+                                            title="min time is 08:00 and max time is 22:00"
+                                            placeholder="enter startTime" required>
+                                    <!--add error validation placeholder here -->
+                                    {{#errors.startTime}}
+                                        <div class="invalid-feedback">{{errors.startTime.msg}}</div>
+                                    {{/errors.startTime}}
+                                </div>
+                            </div>                        
+                    </div><!-- end of row 2 start date and time -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="duration">Duration:</label>
+                                <input  type="number"
+                                        class="form-control {{#errors.duration}}is-invalid{{/errors.duration}}"
+                                        id="duration"
+                                        name="duration"
+                                        min="1"
+                                        max="10"
+                                        step="1"
+                                        value="{{duration}}"
+                                        title="minimum of 3 characters and max of 25, upper and lower case letters only, underscore is allowed"
+                                        placeholder="enter duration" required>
+                                <!--add error validation placeholder here -->
+                                {{#errors.duration}}
+                                    <div class="invalid-feedback">{{errors.duration.msg}}</div>                                    
+                                {{/errors.duration}}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="cost">Cost (£):</label>
+                                <input  type="decimal"
+                                        class="form-control text-end {{#errors.cost}}is-invalid{{/errors.cost}}"
+                                        id="cost"
+                                        name="cost"
+                                        title="minimum of 8 characters"
+                                        value="{{cost}}"
+                                        step="0.01"
+                                        placeholder="0.00" required>
+                                <!--add error validation placeholder here -->
+                                {{#errors.cost}}
+                                    <div class="invalid-feedback">{{errors.cost.msg}}</div>
+                                {{/errors.cost}}
+                            </div>
+                        </div>
+                    </div><!-- end of row 3 duration and cost -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group ">
+                                <label class="font-weight-bold" for="description">Class Description</label>
+                                <textarea  type="text"
+                                        class="form-control {{#errors.description}}is-invalid{{/errors.description}}"
+                                        id="description"
+                                        name="description"
+                                        title="minimum of 8 characters"                                        
+                                        rows="4"
+                                        
+                                        placeholder="enter description" required>{{description}}</textarea>
+                                <!--add error validation placeholder here -->
+                                {{#errors.description}}
+                                    <div class="invalid-feedback">{{errors.description.msg}}</div>
+                                {{/errors.description}}
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-6 align-content-end">
+                            <div class="form-group d-flex justify-content-end align-content-end">
+                                <div class="align-content-end">
+                                    <button type=submit class="btn btn-secondary">Save Class</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end of row description and submit button-->
+                    </form>
+
+            </div>
+            </div>
+                </form>
+                {{/classes}}
+            </div>
+            </div>            
+        </div>
+        </div>
+        </section>
+    </body>
+</html>

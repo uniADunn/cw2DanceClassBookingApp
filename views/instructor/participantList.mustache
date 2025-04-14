@@ -1,0 +1,76 @@
+
+<div class="card-body mx-5">
+            
+        <div class="row ">
+            <div class="card-body p-2"> 
+                
+                {{#noParticipants}}
+                <div class="card mb-1 bg-dark rounded">
+                    <div class="card-text text-center">
+                        <p class="text-warning mb-0 p-1">No Participants yet...</p>
+                    </div>
+                </div>
+                {{/noParticipants}}
+                
+                {{#success}}
+                    <div class="card-title ">
+                        <div class="card-text bg-dark rounded text-success">
+                        <p class="p-2">{{success}}</p>
+                        </div>
+                    </div>
+                {{/success}}
+                {{#fbMsg_success}}
+                    <div class="card-title bg-dark rounded text-success">
+                        <p class="p-2">{{fbMsg_success}}</p>
+                    </div>
+                {{/fbMsg_success}}
+                {{#fbMsg_fail}}
+                    <div class="card-title bg-dark rounded text-danger">
+                        <p class="p-2">{{fbMsg_fail}}</p>
+                    </div>
+                {{/fbMsg_fail}}                  
+                    <div class="col">
+                        <div class="card-text">
+                            <table class="table card-text bg-light rounded border border-dark p-1">
+                            <thead class="bg-warning">
+                                <tr>                                                                    
+                                <th class="border border-dark">First Name</th>
+                                <th class="border border-dark">Last Name</th>
+                                <th class="border border-dark">Email</th>
+                                <th class="border border-dark">Remove participant</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {{#classDetails}}
+                            {{#userDetails}}
+                            {{#.}}
+                            <tr>                                                                            
+                                <td>{{firstname}}</td>
+                                <td>{{surname}}</td>
+                                <td>{{email}}</td>
+                                <td class="text-center"><a href="/auth/removeUserClass/{{userId}}/{{_id}}" class="btn btn-warning">Remove</a></td>
+                                </tr>
+                            {{/.}}    
+                            {{/userDetails}}
+                            {{/classDetails}}
+                            {{#classDetails}}     
+                            {{#guestDetails}}
+                            {{#.}}
+                            <tr>
+                                <td>{{firstName}}</td>
+                                <td>{{surname}}</td>
+                                <td>{{guestEmail}}</td>
+                                <td class="text-center"><a href="/auth/removeGuestclass/{{guestEmail}}/{{_id}}" class="btn btn-warning">Remove</a></td>
+                            </tr>
+                            {{/.}}
+                            {{/guestDetails}} 
+                            {{/classDetails}}                                       
+                            
+                            </tbody>
+                            </table>
+                        </div>                                                                                                
+                    </div>
+                </div>     
+            </div>           
+        
+    

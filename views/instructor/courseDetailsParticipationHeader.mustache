@@ -1,0 +1,72 @@
+<!-- class details section -->                
+                {{#courseDetails}}
+                
+                    {{>instructor/courseParticipationHeader}}
+                    {{>instructor/stats}}
+                    
+        <div class="card-body rounded-bottom bg-info">
+                <div class="row">
+                    <div class="col"> 
+
+                    
+                    <div class="row">
+                        <div class="card-text w-100 d-flex ">
+                            <div class="col-md-8">
+                                <div class="card-text">
+                                    <p class="mb-0 font-weight-bold">Location:</p>
+                                </div>
+                                <div class=" border border-dark bg-light rounded">
+                                    <div class="font-weight-normal p-1 text-capitalize"> {{location}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card-text">
+                                    <p class="mb-0 font-weight-bold">Course Duration:</p>
+                                </div>
+                                <div class="border border-dark text-center bg-light rounded">
+                                    <div class="font-weight-normal p-1 text-Center"> {{course_duration}} Weeks</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row d-flex justify-content-center">
+                        <div class="card-text w-100 d-flex ">
+                            <div class="col">
+                                <div class="card-text">
+                                    <p class="mb-0 font-weight-bold">Start Date:</p>
+                                </div>
+                                <div class=" border border-dark bg-light rounded">
+                                    <div class="font-weight-normal p-1 text-capitalize"> {{start_date}}</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card-text">
+                                    <p class="mb-0 font-weight-bold">Class Start Time:</p>
+                                </div>
+                                <div class="border border-dark text-center bg-light rounded">
+                                    <div class="font-weight-normal p-1 text-Center"> {{class_start_time}} </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card-text">
+                                    <p class="mb-0 font-weight-bold">Class Duration:</p>
+                                </div>
+                                <div class="border border-dark text-center bg-light rounded">
+                                    <div class="font-weight-normal p-1 text-Center"> {{class_duration}} hrs/class</div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                            {{/courseDetails}}
+                    </div>
+                </div><!-- end of row -->
+
+                
+            
+    
+                    
+                        
+                     

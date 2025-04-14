@@ -1,0 +1,85 @@
+<!-- guest navigation buttons -->
+{{#guest}}    
+        <div class="row">            
+            <div class="card-body w-100 shadow p-2 mx-3 mb-3 mt-0 d-flex justify-content-between bg-dark rounded-bottom">
+
+                <div class="col-6">                
+                    <div class="card-text d-flex ">
+                        <a id="homeBtn" href="/" class="btn btn-primary">Home</a>
+                        <a id="classesBtn" href="/show_all_classes" class=" mx-2 btn btn-primary">Classes</a>
+                        <a id="coursesBtn" href="/show_all_courses" class="  btn btn-primary">Courses</a>
+                        <a id="coursesBtn" href="/aboutUs" class="ml-2 btn btn-primary">About us</a>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="col-6">
+                    <div class="card-text text-right">
+                        <a id="registerBtn" href="/register" class="mx-1 btn btn-primary">Register</a>  
+                        <a id="loginBtn" href="/login" class="btn btn-primary">Sign in</a>
+                    </div>
+                </div>
+
+            </div><!-- end of card body -->
+        </div><!-- end of row nav section -->
+{{/guest}}  
+
+<!-- user navigation buttons -->
+{{#user}}
+    <div class="row">            
+            <div class="card-body w-100 shadow p-2 mx-3 mb-3 mt-0 d-flex justify-content-between bg-dark rounded-bottom">
+
+                <div class="col-6">                
+                    <div class="card-text">
+                        <a id="homeBtn" href="/" class="btn btn-primary">Home</a>
+                        <a id="homeBtn" href="/show_all_classes" class="btn btn-primary">Classes</a>
+                        <a id="homeBtn" href="/show_all_courses" class="btn btn-primary">Coarses</a>
+                        <a id="coursesBtn" href="/aboutUs" class="btn btn-primary">About us</a>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="col-6">
+                    <div class="card-text text-right">
+                        <a id="logout" href="/auth/logout" class="btn btn-primary">Sign out</a>
+                    </div>
+                </div>
+
+            </div><!-- end of card body -->
+        </div><!-- end of row nav section -->
+{{/user}}
+
+<!-- admin navigation buttons -->
+{{#admin}}
+    <div class="row">            
+            <div class="card-body w-100 shadow p-2 mx-3 mb-3 mt-0 d-flex justify-content-between bg-dark rounded-bottom">
+
+                <div class="col-5">                
+                    <div class="card-text">
+                        <a id="homeBtn" href="/" class="btn btn-primary">Home</a>
+                        <a id="homeBtn" href="/show_all_classes" class="btn btn-primary">Classes</a>
+                        <a id="homeBtn" href="/show_all_courses" class="btn btn-primary">Coarses</a>
+                        <a id="coursesBtn" href="/aboutUs" class="btn btn-primary">About us</a>
+                    </div>
+                </div>
+                
+                <div class="col-4">
+                    <div class="card-text">
+                        <a id="adminCtrl" href="/auth/admin" class="btn btn-primary">Admin Dashboard</a>
+                    </div>
+                </div>
+                
+                <div class="col-3">
+                    <div class="card-text text-right">
+                        <a id="logout" href="/auth/logout" class="btn btn-primary">Sign out</a>
+                    </div>
+                </div>
+
+            </div><!-- end of card body -->
+        </div><!-- end of row nav section -->
+{{/admin}}
+
+
+ 
