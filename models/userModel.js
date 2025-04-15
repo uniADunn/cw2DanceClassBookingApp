@@ -1,5 +1,5 @@
 const nedb = require('gray-nedb');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = process.env.SALT_ROUNDS;
 // user model - used to store user data and role 
 class UserDAO {
